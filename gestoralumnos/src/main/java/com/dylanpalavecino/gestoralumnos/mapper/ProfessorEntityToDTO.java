@@ -2,7 +2,10 @@ package com.dylanpalavecino.gestoralumnos.mapper;
 
 import com.dylanpalavecino.gestoralumnos.DTO.ProfessorDTO;
 import com.dylanpalavecino.gestoralumnos.entity.Professor;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class ProfessorEntityToDTO implements IMapper<Professor, ProfessorDTO> {
 
 
@@ -12,6 +15,8 @@ public class ProfessorEntityToDTO implements IMapper<Professor, ProfessorDTO> {
         dto.setName(input.getName());
         dto.setLastname(input.getLastname());
         dto.setDepartment(input.getDepartment());
+        dto.setDni(input.getDni());
+
         return dto;
     }
 }

@@ -3,7 +3,10 @@ package com.dylanpalavecino.gestoralumnos.mapper;
 
 import com.dylanpalavecino.gestoralumnos.controller.request.ProfessorRequest;
 import com.dylanpalavecino.gestoralumnos.entity.Professor;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class ProfessorRequestToProfessorEntity implements IMapper<ProfessorRequest, Professor> {
 
 
@@ -16,6 +19,7 @@ public class ProfessorRequestToProfessorEntity implements IMapper<ProfessorReque
         professor.setLastname(input.getLastname());
         professor.setDepartment(input.getDepartment());
         professor.setDni(input.getDni());
+
         return professor;
 
     }

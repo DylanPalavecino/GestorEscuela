@@ -2,9 +2,11 @@ package com.dylanpalavecino.gestoralumnos.service;
 
 import com.dylanpalavecino.gestoralumnos.DTO.SubjectDTO;
 import com.dylanpalavecino.gestoralumnos.controller.request.SubjectRequest;
+import com.dylanpalavecino.gestoralumnos.entity.Professor;
 import com.dylanpalavecino.gestoralumnos.entity.Subject;
 import com.dylanpalavecino.gestoralumnos.mapper.SubjectRequestToSubjectEntity;
 import com.dylanpalavecino.gestoralumnos.mapper.SubjectEntityToDTO;
+import com.dylanpalavecino.gestoralumnos.repository.ProfessorRepository;
 import com.dylanpalavecino.gestoralumnos.repository.SubjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,8 @@ public class SubjectService {
     private final SubjectRepository subjectRepository;
     private final SubjectEntityToDTO subjectEntityToDTO;
     private final SubjectRequestToSubjectEntity subjectRequestToSubjectEntity;
+    private final ProfessorRepository professorRepository;
+
 
     public SubjectDTO createSubject(SubjectRequest subjectRequest) {
 
@@ -25,9 +29,26 @@ public class SubjectService {
 
         return subjectEntityToDTO.map(subjectRepository.save(subject));
 
+    }
+
+
+
+
+    public SubjectDTO assignProfessorById(Long id, Long professorId) {
+
+
+        Subject subject = subjectRepository.findById(id).orElse(null);
+
+        Professor professor = professorRepository.findById(professorId).orElse(null);
+
+        subject.getProfessors().add(professor);
+
+        return subjectEntityToDTO.map(subjectRepository.save(subject));
 
 
     }
+
+
 
 
 }

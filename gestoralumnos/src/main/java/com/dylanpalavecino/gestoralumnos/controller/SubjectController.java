@@ -8,10 +8,7 @@ import com.dylanpalavecino.gestoralumnos.entity.Student;
 import com.dylanpalavecino.gestoralumnos.entity.Subject;
 import com.dylanpalavecino.gestoralumnos.service.SubjectService;
 import jakarta.persistence.ManyToMany;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,5 +29,11 @@ public class SubjectController {
     }
 
 
+    @PostMapping("/assign_professor/{id}/{professorId}")
+    public SubjectDTO assignProfessor(@PathVariable final Long id, @PathVariable final Long professorId) {
+
+        return this.subjectService.assignProfessorById(id, professorId);
+
+    }
 
 }

@@ -1,11 +1,11 @@
 package com.dylanpalavecino.gestoralumnos.controller.request;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 public class ProfessorRequest {
 
 

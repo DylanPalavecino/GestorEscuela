@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 public class ProfessorService {
 
 
-    ProfessorEntityToDTO professorEntityToDTO;
-    ProfessorRequestToProfessorEntity professorRequestToProfessorEntity;
-    ProfessorRepository professorRepository;
+    private final ProfessorEntityToDTO professorEntityToDTO;
+    private final ProfessorRequestToProfessorEntity professorRequestToProfessorEntity;
+    private final ProfessorRepository professorRepository;
 
     //CREAR PROFESOR
 
