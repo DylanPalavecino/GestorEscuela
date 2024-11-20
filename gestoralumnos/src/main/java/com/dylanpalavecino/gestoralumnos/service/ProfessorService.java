@@ -9,6 +9,8 @@ import com.dylanpalavecino.gestoralumnos.repository.ProfessorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ProfessorService {
@@ -24,11 +26,15 @@ public class ProfessorService {
 
         Professor professor = professorRequestToProfessorEntity.map(professorRequest);
 
-
         return professorEntityToDTO.map(this.professorRepository.save(professor));
+    }
+    //MOSTRAR TODOS
+
+    public List<Professor> showAllProfessors() {
+
+        return professorRepository.findAll();
 
     }
-
 
 
 

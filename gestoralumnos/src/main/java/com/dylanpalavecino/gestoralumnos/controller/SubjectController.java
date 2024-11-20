@@ -6,6 +6,7 @@ import com.dylanpalavecino.gestoralumnos.controller.request.SubjectRequest;
 import com.dylanpalavecino.gestoralumnos.entity.Professor;
 import com.dylanpalavecino.gestoralumnos.entity.Student;
 import com.dylanpalavecino.gestoralumnos.entity.Subject;
+import com.dylanpalavecino.gestoralumnos.repository.SubjectRepository;
 import com.dylanpalavecino.gestoralumnos.service.SubjectService;
 import jakarta.persistence.ManyToMany;
 import org.springframework.web.bind.annotation.*;
@@ -23,9 +24,15 @@ public class SubjectController {
         this.subjectService = subjectService;
     }
 
-    @PostMapping("/create_subject")
+    @PostMapping("/create")
     public SubjectDTO createSubject(@RequestBody final SubjectRequest subjectRequest) {
         return this.subjectService.createSubject(subjectRequest);
+    }
+    @GetMapping("/show_all")
+    public List<Subject> showAllSubjects() {
+
+        return subjectService.showAllSubjects();
+
     }
 
 

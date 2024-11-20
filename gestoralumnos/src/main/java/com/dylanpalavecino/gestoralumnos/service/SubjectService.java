@@ -11,6 +11,8 @@ import com.dylanpalavecino.gestoralumnos.repository.SubjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @RequiredArgsConstructor
 @Service
@@ -23,6 +25,8 @@ public class SubjectService {
     private final ProfessorRepository professorRepository;
 
 
+    // CREAR LA MATERIA
+
     public SubjectDTO createSubject(SubjectRequest subjectRequest) {
 
         Subject subject = subjectRequestToSubjectEntity.map(subjectRequest);
@@ -31,8 +35,26 @@ public class SubjectService {
 
     }
 
+    //MOSTRAR UNA MATERIA POR ID
+
+    public SubjectDTO showSubjectById(Long id) {
+
+        return subjectEntityToDTO.map(subjectRepository.findById(id).orElse(null));
+
+    }
+
+    //MOSTRAR TODAS LAS MATERIAS EN LA DB
+
+    public List<Subject> showAllSubjects() {
+
+        return subjectRepository.findAll();
+
+    }
 
 
+
+
+    //ASIGNAR UN PROFESOR A LA MATERIA A TRAVES DE ID
 
     public SubjectDTO assignProfessorById(Long id, Long professorId) {
 

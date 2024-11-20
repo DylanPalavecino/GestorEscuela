@@ -10,6 +10,8 @@ import com.dylanpalavecino.gestoralumnos.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class StudentService {
@@ -28,6 +30,10 @@ public class StudentService {
 
     }
 
+    public List<Student> showAllStudents (){
 
+        return studentRepository.findAll();
+
+    }
 
 }
