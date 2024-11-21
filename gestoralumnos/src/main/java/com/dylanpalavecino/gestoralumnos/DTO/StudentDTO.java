@@ -1,6 +1,7 @@
 package com.dylanpalavecino.gestoralumnos.DTO;
 
 
+import com.dylanpalavecino.gestoralumnos.entity.StudentStatus;
 import lombok.Data;
 
 import java.util.Date;
@@ -13,6 +14,9 @@ public class StudentDTO  {
     private String name;
     private String lastname;
     private Date birthdate;
+    private String email;
+    private String phone;
+
 
 
 

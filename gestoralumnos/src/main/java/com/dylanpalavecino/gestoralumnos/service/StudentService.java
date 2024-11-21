@@ -30,7 +30,7 @@ public class StudentService {
 
     }
 
-    public List<Student> showAllStudents (){
+    public List<Student> findAllStudents (){
 
         return studentRepository.findAll();
 

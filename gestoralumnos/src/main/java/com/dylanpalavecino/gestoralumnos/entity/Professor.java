@@ -14,16 +14,25 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "dni" }) })
 
 public class Professor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     private String lastname;
+    @Column(unique = true , nullable = false)
     private String dni;
+    @Column(nullable = false)
     private String department;
+    private String email;
+    private String phone;
+    @Column(nullable = false)
+    private String cuit;
 
     @ManyToMany
     @JoinTable(name = "subjects_professors", joinColumns = @JoinColumn(name="professor_id"), inverseJoinColumns = @JoinColumn(name="subject_id"))

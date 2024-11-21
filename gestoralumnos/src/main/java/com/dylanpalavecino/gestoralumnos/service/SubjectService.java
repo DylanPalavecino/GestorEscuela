@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RequiredArgsConstructor
@@ -45,12 +46,13 @@ public class SubjectService {
 
     //MOSTRAR TODAS LAS MATERIAS EN LA DB
 
-    public List<Subject> showAllSubjects() {
+    public List<SubjectDTO> findAllSubjects() {
 
-        return subjectRepository.findAll();
+        List<Subject> subjects = subjectRepository.findAll();
+
+        return subjects.stream().map(subject -> subjectEntityToDTO.map(subject)).collect(Collectors.toList());
 
     }
-
 
 
 

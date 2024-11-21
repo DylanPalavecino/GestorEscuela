@@ -30,7 +30,7 @@ public class ProfessorService {
     }
     //MOSTRAR TODOS
 
-    public List<Professor> showAllProfessors() {
+    public List<Professor> findAllProfessors() {
 
         return professorRepository.findAll();
 

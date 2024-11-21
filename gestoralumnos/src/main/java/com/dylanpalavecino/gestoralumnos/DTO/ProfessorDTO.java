@@ -10,6 +10,8 @@ public class ProfessorDTO {
     private String lastname;
     private String department;
     private String dni;
-
+    private String email;
+    private String phone;
+    private String cuit;
 
 }

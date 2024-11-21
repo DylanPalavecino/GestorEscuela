@@ -12,7 +12,6 @@ public class SubjectDTO {
 
     private Long id;
     private String name;
-    private List<Professor> professors;
     private String committee;
     private SubjectShift subjectShift;
 

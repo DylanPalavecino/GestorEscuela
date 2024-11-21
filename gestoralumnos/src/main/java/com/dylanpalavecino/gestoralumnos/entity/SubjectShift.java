@@ -2,5 +2,5 @@ package com.dylanpalavecino.gestoralumnos.entity;
 
 public enum SubjectShift {
 
-    MORNING, LATE, NIGHT
+    MORNING, LATE, AFTERNOON
 }

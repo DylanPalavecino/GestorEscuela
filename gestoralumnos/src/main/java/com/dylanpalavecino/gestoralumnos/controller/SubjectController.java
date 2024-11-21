@@ -24,15 +24,17 @@ public class SubjectController {
         this.subjectService = subjectService;
     }
 
+    @GetMapping("/")
+    public List<SubjectDTO> findAllSubjects() {
+
+        return subjectService.findAllSubjects();
+
+    }
+
+
     @PostMapping("/create")
     public SubjectDTO createSubject(@RequestBody final SubjectRequest subjectRequest) {
         return this.subjectService.createSubject(subjectRequest);
-    }
-    @GetMapping("/show_all")
-    public List<Subject> showAllSubjects() {
-
-        return subjectService.showAllSubjects();
-
     }
 
 
@@ -42,5 +44,8 @@ public class SubjectController {
         return this.subjectService.assignProfessorById(id, professorId);
 
     }
+
+
+
 
 }

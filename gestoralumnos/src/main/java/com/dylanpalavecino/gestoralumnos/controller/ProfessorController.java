@@ -28,10 +28,10 @@ public class ProfessorController {
 
     }
 
-    @GetMapping("/show_all")
-    public List<Professor> showAllProfessors() {
+    @GetMapping("/find_all")
+    public List<Professor> findAllProfessors() {
 
-        return this.professorService.showAllProfessors();
+        return this.professorService.findAllProfessors();
 
     }
 

@@ -24,10 +24,10 @@ public class StudentController {
 
     }
 
-    @GetMapping("/show_all")
-    public List<Student> showAllStudents() {
+    @GetMapping("/find_all")
+    public List<Student> findAllStudents() {
 
-        return this.studentService.showAllStudents();
+        return this.studentService.findAllStudents();
 
     }
 
