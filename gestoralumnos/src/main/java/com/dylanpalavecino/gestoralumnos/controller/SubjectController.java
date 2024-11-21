@@ -31,11 +31,19 @@ public class SubjectController {
 
     }
 
+    @GetMapping("/{id}")
+    public SubjectDTO findSubject(@PathVariable final Long id) {
+
+        return this.subjectService.showSubjectById(id);
+
+    }
+
 
     @PostMapping("/create")
     public SubjectDTO createSubject(@RequestBody final SubjectRequest subjectRequest) {
         return this.subjectService.createSubject(subjectRequest);
     }
+
 
 
     @PostMapping("/assign_professor/{id}/{professorId}")
