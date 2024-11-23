@@ -24,6 +24,9 @@ public class SubjectController {
         this.subjectService = subjectService;
     }
 
+
+
+    //GET
     @GetMapping("/")
     public List<SubjectDTO> findAllSubjects() {
 
@@ -38,6 +41,7 @@ public class SubjectController {
 
     }
 
+    //POST
 
     @PostMapping("/create")
     public SubjectDTO createSubject(@RequestBody final SubjectRequest subjectRequest) {
@@ -53,6 +57,31 @@ public class SubjectController {
 
     }
 
+    @PostMapping("/assign_student/{id}/{studentId}")
+    public SubjectDTO assignStudent(@PathVariable final Long id, @PathVariable final Long studentId) {
+
+        return this.subjectService.assignProfessorById(id, studentId);
+
+    }
+
+    //DELETE
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteSubject (@PathVariable final Long id){
+
+        subjectService.deleteSubject(id);
+
+    }
+
+    //PUT
+    @PutMapping("/update/{id}")
+    public SubjectDTO updateSubject( @RequestBody final SubjectRequest subjectRequest, @PathVariable final Long id) {
+
+        SubjectDTO subjectDTO;
+        subjectDTO = subjectService.updateSubject(subjectRequest, id);
+        return subjectDTO;
+
+    }
 
 
 
