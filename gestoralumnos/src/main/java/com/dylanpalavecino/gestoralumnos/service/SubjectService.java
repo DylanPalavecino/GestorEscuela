@@ -31,8 +31,8 @@ public class SubjectService {
     private final StudentRepository studentRepository;
 
 
-    // CREAR LA MATERIA
 
+    //Crear una materia
     public SubjectDTO createSubject(SubjectRequest subjectRequest) {
 
         Subject subject = subjectRequestToSubjectEntity.map(subjectRequest);
@@ -41,16 +41,16 @@ public class SubjectService {
 
     }
 
-    //MOSTRAR UNA MATERIA POR ID
 
+    //Mostrar materia por id
     public SubjectDTO showSubjectById(Long id) {
 
         return subjectEntityToDTO.map(subjectRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Subject", "id", id )));
 
     }
 
-    //MOSTRAR TODAS LAS MATERIAS EN LA DB
 
+    //Mostrar materias
     public List<SubjectDTO> findAllSubjects() {
 
         List<Subject> subjects = subjectRepository.findAll();
@@ -59,10 +59,7 @@ public class SubjectService {
 
     }
 
-
-
-    //ASIGNAR UN PROFESOR A LA MATERIA ATRAVES DE ID
-
+    //Asignar profesor a materia
     public SubjectDTO assignProfessorById(Long id, Long professorId) {
 
 
@@ -76,13 +73,18 @@ public class SubjectService {
 
 
     }
+    //Asignar alumno a materia
 
     public SubjectDTO assignStudentById(Long id, Long studentId) {
 
-
         Subject subject = subjectRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Subject", "id", id ));
 
-        Student student = studentRepository.findById(studentId).orElseThrow(()->new ResourceNotFoundException("Professor", "id", studentId));
+        Student student= studentRepository.findById(studentId).orElseThrow(()->new ResourceNotFoundException("Student", "id", studentId));
+
+        List<Subject> subjects = subjectRepository.findAll();
+
+
+        //asdasdsadsd
 
         subject.getStudents().add(student);
 
@@ -91,15 +93,13 @@ public class SubjectService {
 
     }
 
-    // ELIMINAR MATERIA
-
+    //Eliminar materia
     public void deleteSubject(Long id) {
         Subject subject = subjectRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Subject", "id", id));
         subjectRepository.delete(subject);
     }
 
-    //ACTUALIZAR MATERIA
-
+    //Actualizar materia
     public SubjectDTO updateSubject(SubjectRequest subjectRequest, Long id) {
 
            Subject subject = subjectRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Subject", "id", id));

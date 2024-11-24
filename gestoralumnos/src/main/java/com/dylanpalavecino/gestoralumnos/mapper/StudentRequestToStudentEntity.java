@@ -19,6 +19,9 @@ public class StudentRequestToStudentEntity implements IMapper<StudentRequest, St
         student.setDni(input.getDni());
         student.setBirthdate(input.getBirthdate());
         student.setStatus(StudentStatus.ACTIVE);
+        student.setEmail(input.getEmail());
+        student.setPhone(input.getPhone());
+
 
         return student;
     }

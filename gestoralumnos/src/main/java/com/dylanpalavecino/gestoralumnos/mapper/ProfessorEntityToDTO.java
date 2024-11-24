@@ -15,8 +15,6 @@ public class ProfessorEntityToDTO implements IMapper<Professor, ProfessorDTO> {
         dto.setName(input.getName());
         dto.setLastname(input.getLastname());
         dto.setDepartment(input.getDepartment());
-        dto.setDni(input.getDni());
-
         return dto;
     }
 }

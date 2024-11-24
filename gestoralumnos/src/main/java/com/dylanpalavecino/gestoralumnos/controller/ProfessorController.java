@@ -28,7 +28,7 @@ public class ProfessorController {
 
     }
 
-    @GetMapping("/find_all")
+    @GetMapping("/")
     public List<Professor> findAllProfessors() {
 
         return this.professorService.findAllProfessors();

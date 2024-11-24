@@ -16,6 +16,9 @@ public class StudentRequest {
     private String lastname;
     private String dni;
     private Date birthdate;
+    private String phone;
+    private String email;
+
 
 
 

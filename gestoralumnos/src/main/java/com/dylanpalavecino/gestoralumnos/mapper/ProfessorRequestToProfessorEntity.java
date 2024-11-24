@@ -19,6 +19,9 @@ public class ProfessorRequestToProfessorEntity implements IMapper<ProfessorReque
         professor.setLastname(input.getLastname());
         professor.setDepartment(input.getDepartment());
         professor.setDni(input.getDni());
+        professor.setCuit(input.getCuit());
+        professor.setEmail(input.getEmail());
+        professor.setPhone(input.getPhone());
 
         return professor;
 

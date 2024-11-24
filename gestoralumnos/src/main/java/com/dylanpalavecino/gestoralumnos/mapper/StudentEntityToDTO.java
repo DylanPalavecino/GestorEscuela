@@ -20,7 +20,7 @@ public class StudentEntityToDTO implements IMapper<Student, StudentDTO> {
         student.setId(input.getId());
         student.setName(input.getName());
         student.setLastname(input.getLastname());
-        student.setBirthdate(input.getBirthdate());
+
 
         return student;
 

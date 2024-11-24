@@ -55,6 +55,7 @@ public class SubjectController {
 
         return this.subjectService.assignProfessorById(id, professorId);
 
+
     }
 
     @PostMapping("/assign_student/{id}/{studentId}")
