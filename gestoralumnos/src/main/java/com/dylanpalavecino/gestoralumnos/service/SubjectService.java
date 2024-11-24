@@ -1,5 +1,6 @@
 package com.dylanpalavecino.gestoralumnos.service;
 
+import com.dylanpalavecino.gestoralumnos.DTO.SubjectAssignProfessorsDTO;
 import com.dylanpalavecino.gestoralumnos.DTO.SubjectDTO;
 import com.dylanpalavecino.gestoralumnos.controller.request.SubjectRequest;
 import com.dylanpalavecino.gestoralumnos.entity.Professor;
@@ -32,6 +33,7 @@ public class SubjectService {
 
 
 
+
     //Crear una materia
     public SubjectDTO createSubject(SubjectRequest subjectRequest) {
 
@@ -60,36 +62,57 @@ public class SubjectService {
     }
 
     //Asignar profesor a materia
-    public SubjectDTO assignProfessorById(Long id, Long professorId) {
+    public SubjectAssignProfessorsDTO assignProfessorById(Long id, Long professorId) {
 
 
         Subject subject = subjectRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Subject", "id", id ));
 
         Professor professor = professorRepository.findById(professorId).orElseThrow(()->new ResourceNotFoundException("Professor", "id", professorId));
 
-        subject.getProfessors().add(professor);
+        List<Professor> professors = professorRepository.findAll();
 
-        return subjectEntityToDTO.map(subjectRepository.save(subject));
+
+
+
+
+
+
+
+
+        subject.getProfessors().add(professor);
+        professor.getSubjects().add(subject);
+
+        professorRepository.save(professor);
+        subjectRepository.save(subject);
+
+        return SubjectAssignProfessorsDTO.builder()
+                .name(subject.getName())
+                .committee(subject.getCommittee())
+                .subjectShift(subject.getSubjectShift())
+
+                .build();
 
 
     }
     //Asignar alumno a materia
 
-    public SubjectDTO assignStudentById(Long id, Long studentId) {
+    public SubjectDTO assignStudentById(Long id, Long studentId) throws Exception {
 
         Subject subject = subjectRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Subject", "id", id ));
 
         Student student= studentRepository.findById(studentId).orElseThrow(()->new ResourceNotFoundException("Student", "id", studentId));
 
-        List<Subject> subjects = subjectRepository.findAll();
+        if(subject.getStudents().size() >= subject.getQUOTA()){
 
+            throw new Exception("Subject quota is full");
 
-        //asdasdsadsd
+        }
 
         subject.getStudents().add(student);
+        student.getSubjects().add(subject);
+        studentRepository.save(student);
 
         return subjectEntityToDTO.map(subjectRepository.save(subject));
-
 
     }
 

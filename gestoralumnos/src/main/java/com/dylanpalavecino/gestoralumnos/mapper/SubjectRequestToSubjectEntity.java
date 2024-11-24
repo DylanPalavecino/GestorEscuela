@@ -18,6 +18,7 @@ public class SubjectRequestToSubjectEntity implements IMapper<SubjectRequest, Su
         subject.setName(input.getName());
         subject.setCommittee(input.getCommittee());
         subject.setSubjectShift(input.getSubjectShift());
+
         return subject;
 
     }

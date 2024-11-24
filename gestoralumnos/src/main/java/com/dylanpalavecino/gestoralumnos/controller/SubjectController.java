@@ -59,9 +59,9 @@ public class SubjectController {
     }
 
     @PostMapping("/assign_student/{id}/{studentId}")
-    public SubjectDTO assignStudent(@PathVariable final Long id, @PathVariable final Long studentId) {
+    public SubjectDTO assignStudent(@PathVariable final Long id, @PathVariable final Long studentId) throws Exception {
 
-        return this.subjectService.assignProfessorById(id, studentId);
+        return this.subjectService.assignStudentById(id, studentId);
 
     }
 

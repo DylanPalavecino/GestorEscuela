@@ -33,7 +33,7 @@ public class Subject {
     //TURNO DE LA MATERIA -- MORNING, LATE, NIGHT
     @Column(nullable = false)
     private SubjectShift subjectShift;
-    private transient final int QUOTA = 20;
+    private transient final int QUOTA = 3;
 
 
 
