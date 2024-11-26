@@ -10,9 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class StudentEntityToDTO implements IMapper<Student, StudentDTO> {
 
-
-
-
     @Override
     public StudentDTO map(Student input) {
 

@@ -20,7 +20,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StudentService {
 
-
     private final StudentRepository studentRepository;
     private final StudentRequestToStudentEntity studentRequestToStudentEntity;
     private final StudentEntityToDTO studentEntityToDTO;
@@ -72,13 +71,5 @@ public class StudentService {
         return studentEntityToDTO.map(this.studentRepository.save(student));
 
     }
-
-
-
-
-
-
-
-
 
 }

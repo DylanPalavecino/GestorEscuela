@@ -8,7 +8,6 @@ import lombok.Setter;
 @Data
 public class ProfessorRequest {
 
-
     private String name;
     private String lastname;
     private String dni;
@@ -16,9 +15,5 @@ public class ProfessorRequest {
     private String email;
     private String phone;
     private String cuit;
-
-
-
-
 
 }

@@ -11,15 +11,11 @@ import java.util.Date;
 
 public class StudentRequest {
 
-
     private String name;
     private String lastname;
     private String dni;
     private Date birthdate;
     private String phone;
     private String email;
-
-
-
 
 }

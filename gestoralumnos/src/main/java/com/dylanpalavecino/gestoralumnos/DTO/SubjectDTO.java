@@ -15,5 +15,4 @@ public class SubjectDTO {
     private String committee;
     private SubjectShift subjectShift;
 
-
 }

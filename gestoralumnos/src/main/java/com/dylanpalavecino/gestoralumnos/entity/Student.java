@@ -19,7 +19,6 @@ import java.util.List;
 
 public class Student {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,10 +37,6 @@ public class Student {
     @ManyToMany
     @JoinTable(name="students_subjects", joinColumns = @JoinColumn(name="student_id"), inverseJoinColumns = @JoinColumn(name = "subject_id"))
     private List<Subject> subjects;
-
-
-
-
 
 
 }

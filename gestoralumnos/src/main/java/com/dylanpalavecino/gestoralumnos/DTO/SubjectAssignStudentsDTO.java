@@ -11,6 +11,4 @@ import java.util.List;
 @Builder
 public record SubjectAssignStudentsDTO(Long id,String name,String committee,SubjectShift subjectShift, List<StudentDTO> students) {
 
-
-
 }

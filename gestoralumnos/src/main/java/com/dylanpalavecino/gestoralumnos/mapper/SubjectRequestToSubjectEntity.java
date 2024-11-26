@@ -8,9 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class SubjectRequestToSubjectEntity implements IMapper<SubjectRequest, Subject>{
 
-
-
-
     @Override
     public Subject map(SubjectRequest input) {
 
@@ -22,6 +19,5 @@ public class SubjectRequestToSubjectEntity implements IMapper<SubjectRequest, Su
         return subject;
 
     }
-
 
 }

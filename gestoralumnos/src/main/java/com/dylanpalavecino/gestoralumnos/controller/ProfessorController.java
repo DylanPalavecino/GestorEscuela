@@ -17,14 +17,12 @@ import java.util.List;
 @RequestMapping("/professors")
 public class ProfessorController {
 
-
     private final ProfessorService professorService;
 
     @PostMapping("/create")
     public ProfessorDTO createProfessor (@RequestBody ProfessorRequest professorRequest) {
 
         return this.professorService.createProfessor(professorRequest);
-
 
     }
 
@@ -34,8 +32,6 @@ public class ProfessorController {
         return this.professorService.findAllProfessors();
 
     }
-
-
 
 
 }

@@ -1,11 +1,13 @@
 package com.dylanpalavecino.gestoralumnos.controller;
 
 
+import com.dylanpalavecino.gestoralumnos.DTO.SubjectAssignProfessorsDTO;
 import com.dylanpalavecino.gestoralumnos.DTO.SubjectDTO;
 import com.dylanpalavecino.gestoralumnos.controller.request.SubjectRequest;
 import com.dylanpalavecino.gestoralumnos.entity.Professor;
 import com.dylanpalavecino.gestoralumnos.entity.Student;
 import com.dylanpalavecino.gestoralumnos.entity.Subject;
+import com.dylanpalavecino.gestoralumnos.exceptions.ProfessorAlreadyAsignedException;
 import com.dylanpalavecino.gestoralumnos.repository.SubjectRepository;
 import com.dylanpalavecino.gestoralumnos.service.SubjectService;
 import jakarta.persistence.ManyToMany;
@@ -24,8 +26,6 @@ public class SubjectController {
         this.subjectService = subjectService;
     }
 
-
-
     //GET
     @GetMapping("/")
     public List<SubjectDTO> findAllSubjects() {
@@ -42,19 +42,15 @@ public class SubjectController {
     }
 
     //POST
-
     @PostMapping("/create")
     public SubjectDTO createSubject(@RequestBody final SubjectRequest subjectRequest) {
         return this.subjectService.createSubject(subjectRequest);
     }
 
-
-
     @PostMapping("/assign_professor/{id}/{professorId}")
-    public SubjectDTO assignProfessor(@PathVariable final Long id, @PathVariable final Long professorId) {
+    public SubjectAssignProfessorsDTO assignProfessor(@PathVariable final Long id, @PathVariable final Long professorId) throws ProfessorAlreadyAsignedException {
 
         return this.subjectService.assignProfessorById(id, professorId);
-
 
     }
 
@@ -66,7 +62,6 @@ public class SubjectController {
     }
 
     //DELETE
-
     @DeleteMapping("/delete/{id}")
     public void deleteSubject (@PathVariable final Long id){
 
@@ -83,7 +78,5 @@ public class SubjectController {
         return subjectDTO;
 
     }
-
-
 
 }

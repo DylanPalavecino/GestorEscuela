@@ -7,8 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class SubjectEntityToDTO implements IMapper<Subject, SubjectDTO>{
 
-
-
     @Override
     public SubjectDTO map(Subject input) {
 
@@ -18,8 +16,6 @@ public class SubjectEntityToDTO implements IMapper<Subject, SubjectDTO>{
         dto.setCommittee(input.getCommittee());
         dto.setSubjectShift(input.getSubjectShift());
         return dto;
-
-
 
 
     }

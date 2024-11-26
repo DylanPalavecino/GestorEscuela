@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class StudentRequestToStudentEntity implements IMapper<StudentRequest, Student>{
 
-
     @Override
     public Student map(StudentRequest input) {
 
@@ -22,11 +21,8 @@ public class StudentRequestToStudentEntity implements IMapper<StudentRequest, St
         student.setEmail(input.getEmail());
         student.setPhone(input.getPhone());
 
-
         return student;
     }
-
-
 
 
 }

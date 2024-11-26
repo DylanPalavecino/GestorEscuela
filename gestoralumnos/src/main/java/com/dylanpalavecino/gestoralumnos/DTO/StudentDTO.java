@@ -6,7 +6,6 @@ import lombok.Data;
 
 import java.util.Date;
 
-
 @Data
 public class StudentDTO  {
 
@@ -16,8 +15,6 @@ public class StudentDTO  {
     private Date birthdate;
     private String email;
     private String phone;
-
-
 
 
 }

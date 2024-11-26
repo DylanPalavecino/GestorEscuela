@@ -39,7 +39,4 @@ public class Professor {
     private List<Subject> subjects;
 
 
-
-
-
 }

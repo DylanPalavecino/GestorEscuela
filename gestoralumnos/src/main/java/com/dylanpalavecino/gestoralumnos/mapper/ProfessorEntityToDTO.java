@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProfessorEntityToDTO implements IMapper<Professor, ProfessorDTO> {
 
-
     @Override
     public ProfessorDTO map(Professor input) {
         ProfessorDTO dto = new ProfessorDTO();

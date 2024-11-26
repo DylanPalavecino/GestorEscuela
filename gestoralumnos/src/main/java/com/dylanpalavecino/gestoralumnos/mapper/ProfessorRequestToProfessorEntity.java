@@ -9,8 +9,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProfessorRequestToProfessorEntity implements IMapper<ProfessorRequest, Professor> {
 
-
-
     @Override
     public Professor map(ProfessorRequest input) {
 
@@ -24,6 +22,6 @@ public class ProfessorRequestToProfessorEntity implements IMapper<ProfessorReque
         professor.setPhone(input.getPhone());
 
         return professor;
-
     }
+
 }

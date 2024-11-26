@@ -17,8 +17,6 @@ import java.util.List;
 
 public class Subject {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,8 +32,6 @@ public class Subject {
     @Column(nullable = false)
     private SubjectShift subjectShift;
     private transient final int QUOTA = 3;
-
-
 
 
 }

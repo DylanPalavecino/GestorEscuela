@@ -11,6 +11,4 @@ import java.util.List;
 public record SubjectAssignProfessorsDTO(Long id, String name, String committee, SubjectShift subjectShift, List<ProfessorDTO> professors) {
 
 
-
-
 }

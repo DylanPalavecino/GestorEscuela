@@ -16,7 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProfessorService {
 
-
     private final ProfessorEntityToDTO professorEntityToDTO;
     private final ProfessorRequestToProfessorEntity professorRequestToProfessorEntity;
     private final ProfessorRepository professorRepository;
@@ -37,6 +36,7 @@ public class ProfessorService {
         return professorRepository.findAll();
 
     }
+
     //Mostrar un profesor
 
     public ProfessorDTO findProfessorById(Long id) {
@@ -56,8 +56,6 @@ public class ProfessorService {
     }
 
     //Actualizar profesor por id
-
-
 
 
 }
